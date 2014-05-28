@@ -1,0 +1,36 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$grey: #B8B5C7;
+
+body { width: 100%; height: 100%; background-color: $grey; font-family: 'Open Sans', sans-serif;
+	padding-left: 10%; padding-right: 10%; text-align: center; padding-top: 5% }
+
+.headertext { margin: 20px; font-size: 1.5em }
+
+#topheadline { margin-top: 5%; margin-bottom: 5% }
+
+#emailbox { height: 2.5em;  width: 30%; margin: 0 auto; min-width: 200px; }
+
+#btnSignup {margin: 0 auto; margin-top: 1%; display: block; text-align: center }
+
+#launch { margin-top: 5%; margin-bottom: 5%; }
+
+p#crafted {height: 140%; margin-top: 5%; font-size: 1.2em}
+
+#imagesdiv img { margin-right: 3px; }
+
+h2#firsttouse { margin-bottom: 20px; }
+
+#loanr {font-family: 'Lobster', cursive;}
+
+.glyphicon-transfer {padding-left: 0.5em; padding-right: 0.5em}
+
+#error { width: 100%; display:none; position: fixed; z-index: 999; bottom: -50px; text-align: center; font-size: 18px; border-top: 1px solid red; background: #990000; padding: 10px 15px; color: #fff; }
+#success { width: 100%; display:none; position: fixed; z-index: 999; bottom: -50px; text-align: center; font-size: 18px; border-top: 2px solid rgba(6,183,31,1); background: rgba(6,183,31,.8); padding: 10px 15px; color: #fff; }
+
+
+
+
+
+
