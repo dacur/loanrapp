@@ -10,6 +10,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if (session[:user_id] == nil)
+      redirect_to "/"
+    end
+
+    
   end
 
   # GET /users/new

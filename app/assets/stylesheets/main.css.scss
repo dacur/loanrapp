@@ -24,6 +24,8 @@ h2#firsttouse { margin-bottom: 20px; }
 
 #loanr {font-family: 'Lobster', cursive;}
 
+#fblogin, #btnLogout { display: none; }
+
 .glyphicon-transfer {padding-left: 0.5em; padding-right: 0.5em}
 
 #error { width: 100%; display:none; position: fixed; z-index: 999; bottom: -50px; text-align: center; font-size: 18px; border-top: 1px solid red; background: #990000; padding: 10px 15px; color: #fff; }

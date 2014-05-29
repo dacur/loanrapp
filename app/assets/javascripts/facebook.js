@@ -20,24 +20,27 @@ window.fbAsyncInit = function() {
   });
 };
 
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-  });
-}
+// function checkLoginState() {
+//   FB.getLoginStatus(function(response) {
+//       statusChangeCallback(response);
+//   });
+// }
 
 function InitFacebook(){
-  $('.btnFacebook').on('click', function(){
+  $('#fblogin').on('click', function(){
     FB.login(function(){
       FB.api('/me', function(response) {
         console.log('Successful login for: ' + response.name);
+        
         $.ajax({
           url: '/main/savefacebookuser', //changed from api
           type: 'POST',
           data: { first_name: response.first_name, last_name: response.last_name, email: response.email, facebook_id: response.id }
         }).done(function(data){
-            HideDialog();
-            setTimeout(function(){ window.location = "/users_path"; }, 2000);
+          if (data == null)
+            alert('BAD');
+          else
+            window.location = '/users/' + data;
         });
 
         // {"id":"10152815450179338","email":"nikebaxter@gmail.com","first_name":"David","gender":"male","last_name":"Baxter","link":"https://www.facebook.com/app_scoped_user_id/10152815450179338/","locale":"en_US","name":"David Baxter","timezone":-4,"updated_time":"2013-05-22T14:19:45+0000","verified":true}
@@ -59,19 +62,25 @@ function statusChangeCallback(response) {
     ProcessFBLogin(response);
   } else if (response.status === 'not_authorized') {
     // The person is logged into Facebook, but not your app.
-    
+    checkstatus();
   } else {
     // The person is not logged into Facebook, so we're not sure if
     // they are logged into this app or not.
-   
+    checkstatus();
   }
 }
 
 function ProcessFBLogin(res){
-  if ($('#hdnID').val() !== "")
-    console.log('#hdnID');
-    return;
+  console.log('PROCESS FB LOGIN');
+  var id = $('#hdnID').val();
 
+  if (id !== "") {
+    console.log('LOGIN CHECK - "' + id + '"');
+    checkstatus();
+    return;
+  }
+
+  console.log('PROCESS AJAX');
 
   $.ajax({
     url: '/main/facebooklogin',
@@ -79,10 +88,10 @@ function ProcessFBLogin(res){
     data: { facebook_id: res.authResponse.userID }  
   }).done(function(data){
     // alert(data);
-    if (data === null)
-      window.location = '/'; // ShowError("Hmm...we couldn't log you in. Might want to try again.");
-    else
-      $('#hdnID').val(data);
-      window.location = '/users/' + data;
+    // if (data === null)
+    //   window.location = '/'; // ShowError("Hmm...we couldn't log you in. Might want to try again.");
+    // else
+    //   $('#hdnID').val(data);
+    //   window.location = '/users/' + data;
   });
 }
