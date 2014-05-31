@@ -9,11 +9,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="style1">
 
 <h2 class="headertext">Lend stuff<span class = "glyphicon glyphicon-transfer"></span>
 	Borrow stuff &nbsp; &nbsp; &nbsp; &nbsp; </span>Save money </span>
-	 and the planet <span class = "glyphicon glyphicon-tree-conifer"></span></h2>
+	 and the planet <span class = "glyphicon glyphicon-tree-conifer"></span><button id="fblogin"></button></h2>
 
 	<button id="fblogin"></button>
 
@@ -26,7 +26,7 @@
 
 <%= yield %>
 
-<p id="crafted"><span class = "glyphicon glyphicon-tree-deciduous"></span>     Proudly crafted in Raleigh, NC     <span class = "glyphicon glyphicon-tree-deciduous"></span></p>
+<p id="crafted"><span class = "glyphicon glyphicon-tree-deciduous"></span>Proudly crafted in Raleigh, NC<span class = "glyphicon glyphicon-tree-deciduous"></span></p>
 
 </body>
 </html>

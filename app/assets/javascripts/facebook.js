@@ -30,6 +30,13 @@ function InitFacebook(){
   $('#fblogin').on('click', function(){
     FB.login(function(){
       FB.api('/me', function(response) {
+        // alert(JSON.stringify(response));
+
+        if (response.error != null) {
+
+          return;
+        }
+
         console.log('Successful login for: ' + response.name);
         
         $.ajax({
